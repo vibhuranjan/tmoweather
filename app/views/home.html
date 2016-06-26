@@ -1,0 +1,85 @@
+    <div class="site-content">
+      <div class="site-header">
+        <div class="container">
+          <a href="index.html" class="branding">
+            <img src="images/logo.png" alt="" class="logo">
+            <div class="logo-type">
+              <h1 class="site-title">TMO Weather APPLICATION</h1>
+              <small class="site-description">tagline goes here</small>
+            </div>
+          </a>
+
+          <!-- Default snippet for navigation -->
+          <div class="main-navigation">
+            <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+            <ul class="menu">
+              <li class="menu-item current-menu-item"><a ui-sref="home">Home</a></li>
+            </ul> <!-- .menu -->
+          </div> <!-- .main-navigation -->
+
+          <div class="mobile-navigation"></div>
+
+        </div>
+      </div> <!-- .site-header -->
+
+      <div class="" data-bg-image="images/banner.png">
+        <div class="container find-location">
+
+        <div style="margin-bottom:10px"><input type="text" ng-model="cityName" placeholder="Enter your location..."/></div>
+        <div>
+        <span style="margin-right:5px"><button type="submit" value="Find" ng-click="getCity()">Find</button></span>
+        <span><button type="submit" value="Reset" ng-click="resetLS()">Reset</button></span>
+        </div>
+        </div>
+      </div>
+    
+      <main class="main-content" ng-if="dataOfCities.length  >= 1" ng-hide="checkParam">
+        <div class="fullwidth-block">
+          <div class="container">
+            <h2 class="section-title">Live Weather</h2>
+            <div class="row">
+               
+          <div  class="col-md-3 col-sm-6 forecast-container" ng-repeat="currentCity in dataOfCities" >
+            <div ui-sref="details({city: '{{currentCity.data.name}}'})" class="today forecast" ng-click ="displayCityDetails()" data-city={{currentCity.data.name}}>
+              <div class="forecast-header" data-city={{currentCity.data.name}}>
+              <!--
+                <div class="day">Monday</div>
+                <div class="date">6 Oct</div>
+              -->
+              </div> <!-- .forecast-header -->
+              <div class="forecast-content" data-city={{currentCity.data.name}}>
+                <div class="location" data-city={{currentCity.data.name}}>{{currentCity.data.name}}</div>
+                <div class="degree" data-city={{currentCity.data.name}}>
+                  <div class="num" data-city={{currentCity.data.name}}>{{currentCity.data.main.temp}}<sup>o</sup>C</div>
+                </div>
+                <span data-city={{currentCity.data.name}}>{{currentCity.data.weather[0].main}}</span>
+                <span><img src="{{currentCity.status}}" alt=""></span>
+                <span><img src="images/icon-wind.png" data-city={{currentCity.data.name}} alt="">{{currentCity.data.wind.speed}}km/h</span>
+                <span><img src="images/icon-compass.png" data-city={{currentCity.data.name}} alt="">{{currentCity.data.main.humidity}}</span>
+              </div>
+            </div>
+          </div>              
+            </div>
+          </div>
+        </div>
+
+        
+      </main> <!-- .main-content -->
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+          <!--
+            <div class="col-md-8">
+              <form action="#" class="subscribe-form">
+                <input type="text" placeholder="Enter your email to subscribe...">
+                <input type="submit" value="Subscribe">
+              </form>
+            </div>
+            -->
+          </div>
+
+          <p class="colophon">Copyright 2016 T-Mobile. All rights reserved</p>
+        </div>
+      </footer> <!-- .site-footer -->
+    </div>

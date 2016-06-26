@@ -1,0 +1,8 @@
+<div ng-controller="cityNameCtrl">
+<p>Select city</p>
+<select ng-model="selectedCity" ng-change="citySelected()">
+<option ng-repeat="x in city" value="{{x.name}}">{{x.name}}</option>
+</select>
+<div>City :: {{selectedCity}}</div>
+<div>City :: {{weatherData.message}}</div>
+</div>

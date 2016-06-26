@@ -1,0 +1,1 @@
+angular.module('handsOn1App').value('name', 'value');
