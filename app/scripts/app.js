@@ -1,5 +1,6 @@
 /**///'use strict';
 // added comment to check fetch
+// comment
   var app = angular.module('myApp', ['ngStorage', 'ui.router']);
 
 app.config(function($stateProvider, $urlRouterProvider){
